@@ -1,0 +1,50 @@
+[System]
+Name='Logic_for_fire'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='bisector'
+
+[Input1]
+Name='flame_strength'
+Range=[0 1024]
+NumMFs=3
+MF1='low':'trapmf',[-383.8 -42.65 259 514]
+MF2='Medium':'trimf',[259 514 765]
+MF3='High':'trapmf',[514 765 1067 1408]
+
+[Input2]
+Name='smoke_strength'
+Range=[0 1024]
+NumMFs=3
+MF1='low':'trapmf',[-383.8 -42.65 259 514]
+MF2='Medium':'trimf',[259 514 765]
+MF3='High':'trapmf',[514 765 1067 1408]
+
+[Output1]
+Name='output1'
+Range=[0 1024]
+NumMFs=3
+MF1='Low':'trapmf',[-383.8 -42.65 259 514]
+MF2='Medium':'trimf',[259 514 765]
+MF3='High':'trapmf',[515.2 765 1067 1408]
+
+[Rules]
+1 3, 3 (1) : 1
+2 3, 3 (1) : 1
+3 3, 3 (1) : 1
+1 2, 2 (1) : 1
+2 2, 2 (1) : 1
+3 2, 3 (1) : 1
+1 3, 3 (1) : 1
+2 3, 3 (1) : 1
+3 3, 3 (1) : 1
+1 1, 1 (1) : 1
+2 1, 2 (1) : 1
+3 1, 3 (1) : 1
